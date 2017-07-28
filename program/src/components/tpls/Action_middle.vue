@@ -1,6 +1,7 @@
 <template>
-<div class="action-middle" v-on:click="click">
+<div class="action-middle" v-on:click="clickHandle">
 </div>
+
 </template>
 
 <script>
@@ -17,14 +18,15 @@ export default {
     }
   },
   methods: {
-    click () {
-      var self = this
-      if (self.dom1.nav_top.css('display') === 'none') {
-        self.dom1.nav_top.slideDown(200)
-        self.dom1.nav_bottom.slideDown(200)
+    clickHandle () {
+      var top = window.$('#nav-top')
+      var bottom = window.$('#nav-bottom')
+      if (top.css('display') === 'none') {
+        top.slideDown(200)
+        bottom.slideDown(200)
       } else {
-        self.dom1.nav_top.slideUp(100)
-        self.dom1.nav_bottom.slideUp(100)
+        top.slideUp(200)
+        bottom.slideUp(200)
       }
     }
   },
