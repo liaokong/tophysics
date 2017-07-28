@@ -7,7 +7,8 @@ import VueResource from 'vue-resource'
 import Vuex from 'vuex'
 Vue.use(VueResource)
 Vue.use(Vuex)
-
+var $ = window.$
+Vue.use($)
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 Vue.component('my-tops', require('./components/tpls/Tops.vue'))
