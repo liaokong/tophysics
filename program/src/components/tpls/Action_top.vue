@@ -32,6 +32,9 @@ export default {
   width: 100%;
   display: none;
   background-color: rgba(100,100,100,0.3);
+  .show_nav{
+    display: block;
+  }
   ul{
     margin-left: 0;
     margin-top: 1.3%;

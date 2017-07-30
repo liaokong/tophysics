@@ -1,12 +1,9 @@
 <template>
 <div class="footer">
   <footer>
-    <div class="bottom-nav-bk bottom_nav" style="display:none"></div>
-    <div class="bottom-nav bottom_nav" style="display:none">
-      <div class="item menu-button"id="menu_buttom"></div>
-    </div>
+  copyright from 2016 - {{nowyear}}
   </footer>
-  <!-- <author :auth="auth"></author> -->
+  <author :auth="auth"></author>
 </div>
 </template>
 <script>
@@ -33,12 +30,13 @@ export default{
 </script>
 <style lang="scss">
 .footer{
-  position: absolute;
+  position: fixed;
+  z-index: 900;
   overflow: hidden;
-  height: 4rem;
+  height: 2rem;
   bottom: 0;
   background-color: rgba(100,100,100,0.3);
-  margin-top: 90px;
+  margin-top: 100px;
   font-size: 11px;
   width: 100%;
   ul{

@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <action-top></action-top>
+    <!-- <action-top></action-top> -->
     <action-middle></action-middle>
     <router-view></router-view>
-    <div class="bottom-nav">
-    <action-bottom></action-bottom>
-    <!-- <my-footer></my-footer> -->
-  </div>
+    <!-- <div class="bottom-nav"> -->
+    <!-- <action-bottom></action-bottom> -->
+    <my-footer></my-footer>
+  <!-- </div> -->
     
   </div>
 

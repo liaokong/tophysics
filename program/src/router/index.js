@@ -15,8 +15,8 @@ export default new Router({
       component: require('../components/user/Login.vue')
     },
     {
-      path: '/home',
-      component: require('../components/Home.vue')
+      path: '/home/myfrom',
+      component: require('../components/tpls/Form.vue')
     },
     {
       path: '/setting',
