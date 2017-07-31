@@ -130,7 +130,7 @@ export default {
   height: 30%;
   top: 60%;
   bottom: 0;
-  /*z-index: -1;*/
+  z-index: -1;
 }
 
 
