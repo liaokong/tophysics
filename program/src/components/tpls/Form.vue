@@ -3,17 +3,26 @@
   <div class="form_title">
     请填表
   </div>
+
   <div class="single_form" v-for="(nature,index) in form_natures" v-show="index == nature_id">
     第{{index + 1}}项-共{{item_count}}项
     <br/>
     <label>{{nature.text}}</label>
     <br/>
-    <input type="text" class="model_data" v-model="nature.model">
+    <input v-if="nature.type=='text'" type="text" class="model_data" v-model="nature.model">
+    <input v-if="nature.type=='date'" type="date"  class="model_data" v-model="nature.model">
+    <el-select v-model.lazy="provinces" v-if="nature.type=='provice'">
+      <el-option
+        v-for="province in privoinces"
+        :label="province.name"
+        :value="province.value"
+      </el-option>
+    </el-select>
     <div class="sub_action">
       <input v-if="index > 0" class="pre_index" type="button" value="上一步" @click="page(index-1)">
       <input v-else disabled class="pre_index disabled" type="button" value="上一步">
       <input v-if="index < item_count-1" class="next_index" type="button" value="下一步" @click="page(index+1)">
-      <input v-else disabled class="next_index" type="button" value="下一步">
+      <input v-else class="next_index" type="button" value="提交">
     </div>
   </div>
 </div>
@@ -40,6 +49,16 @@ export default{
         { 'type': 'text',
           'model': '安徽',
           'text': '籍贯'
+        },
+        {
+          'type': 'date',
+          'model': 'birthday',
+          'text': '生日'
+        },
+        {
+          'type': 'provice',
+          'modle': 'tianjin',
+          'text': '户籍'
         }
       ]
     }
@@ -65,6 +84,18 @@ export default{
 }
 </script>
 <style lang="scss">
+  .sublimit{
+    position: absolute;
+    bottom: 0rem;
+    z-index: 10;
+    width: 100%;
+    .sub_button{
+      width: 70%;
+      height: 3rem;
+      border-radius: .4rem;
+      background: rgba(123, 123, 123, 1);
+    }
+  }
   .myform{
     .form_title{
       font-size: 3rem;
@@ -87,9 +118,19 @@ export default{
         display: block;
         margin: 0 auto;
         width: 97%;
+        overflow: hidden;
         height: 3rem;
-        font-size: 2.6rem;
+        line-height: 3rem;
+        font-size: 2rem;
+        vertical-align: middle;
       }
+      .model_data[type='date']{
+        
+      }
+      select{
+        line-height: 2rem;
+      }
+      
       .sub_action{
         margin-top: 10rem;
         padding: 0 0.3rem;
